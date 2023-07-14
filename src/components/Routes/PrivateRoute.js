@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import API from "../../services/API";
 import { useDispatch } from "react-redux";
-
 import { Navigate } from "react-router-dom";
 import { getCurrentUser } from "../../redux/features/auth/authActions";
 
@@ -9,13 +8,12 @@ export default function PrivateRoute({ children }) {
   const dispatch = useDispatch();
   const getUser = async () => {
     try {
-      const { data } = await API.get("/auth/current-user");
-      if (data.success) {
-        dispatch(getCurrentUser());
-      }
-
-      if (!data.success) {
-        throw new Error("user not found");
+      const res = await API.get("/auth/current-user");
+      if (res.data.success) {
+        console.log("success aa gaya ");
+        dispatch(getCurrentUser("Ab"));
+      } else {
+        throw Error("Not found");
       }
     } catch (error) {
       localStorage.clear();
@@ -25,11 +23,11 @@ export default function PrivateRoute({ children }) {
 
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
-  if (localStorage.getItem("token")) {
-    return children;
+  if (!localStorage.getItem("token")) {
+    return <Navigate to="/login" />;
   } else {
-    <Navigate to="/login" />;
+    return children;
   }
 }
