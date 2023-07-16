@@ -14,3 +14,91 @@
   align-items: center;
   min-height: 100vh;
 }
+
+/* Loader or spinner */
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  opacity: 0.2;
+  height: 100vh;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  border-radius: 50%;
+  border-bottom-color: #ff3d00;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Navbar */
+
+.navbar {
+  background-color: rgb(0, 0, 0);
+}
+
+.nav-link,
+.navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand :hover {
+  color: #ff3d00 !important;
+}
+.nav-link:hover {
+  color: #ff3d00 !important;
+}
+
+/* Sidebar */
+
+.sidebar {
+  height: 100vh;
+  background-color: #2e3200;
+  box-shadow: 0 0 2px;
+  color: white;
+  /* border-radius: 5px; */
+}
+
+.menu {
+  /* padding: 30px; */
+  padding-top: 100px;
+}
+
+.menu-item {
+  padding-top: 30px;
+  padding-left: 10px;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.active {
+  background-color: white;
+  padding: 10px;
+}
+
+.active a,
+.active i {
+  color: #2e3200;
+}
+
+.active a,
+.active i {
+}

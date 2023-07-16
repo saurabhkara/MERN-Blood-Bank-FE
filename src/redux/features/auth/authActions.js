@@ -13,7 +13,7 @@ export const userLogin = createAsyncThunk(
         toast.success(data.message);
         setTimeout(() => {
           window.location.replace("/");
-        }, 2000);
+        }, 1000);
         return data;
       }
     } catch (error) {
@@ -59,7 +59,7 @@ export const registerUser = createAsyncThunk(
         toast.success(data.message);
         setTimeout(() => {
           window.location.replace("/login");
-        }, 2000);
+        }, 1000);
         return data;
       }
     } catch (error) {
@@ -78,7 +78,6 @@ export const getCurrentUser = createAsyncThunk(
   async ({ ab }, { rejectWithValue }) => {
     try {
       const { data } = await API.get("/auth/current-user");
-      console.log(data);
       if (data.success) {
         return data;
       }
