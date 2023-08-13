@@ -8,10 +8,10 @@ export default function Sidebar() {
     <div>
       <div className="sidebar">
         <div className="menu">
-          {userMenu.map((menu) => {
+          {userMenu.map((menu, index) => {
             const isActive = location.pathname === menu.path;
             return (
-              <div className={`menu-item ${isActive && "active"}`}>
+              <div className={`menu-item ${isActive && "active"}`} key={index}>
                 <i className={menu.icon}></i>
                 <Link to={menu.path}>{menu.name}</Link>
               </div>

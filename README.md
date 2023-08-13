@@ -6,3 +6,4 @@
 - Loader or Spinner
 - Navbar
 - Nested children render component like - navbar and sidebar in dashboard(home)
+- Logout
